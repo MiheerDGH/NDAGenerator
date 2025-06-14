@@ -100,7 +100,7 @@ function App() {
 
   return (
     <div className="container" style={{ maxWidth: "770px", margin: "40px auto", fontFamily: "Arial, sans-serif" }}>
-      <h1 className="text-center mb-4">🤝 Paralegal NDA Generator</h1>
+      <h1 className="text-center mb-4">🤝 LegalChain NDA Generator</h1>
 
       {/* NDA Form */}
       <form onSubmit={handleSubmit} className="nda-form">
@@ -130,10 +130,14 @@ function App() {
           <label>Description of Confidential Information</label>
           <textarea name="description" rows="4" value={formData.description} onChange={handleChange} placeholder="e.g. proprietary algorithms, trade secrets..." required></textarea>
         </div>
-
         <div className="form-actions">
           <button type="submit" disabled={loading}>
-            {loading ? "Generating..." : "Generate NDA"}
+            {loading ? (
+              <>
+                Generating...
+                <span className="spinner" />
+              </>
+            ) : "Generate NDA"}
           </button>
         </div>
       </form>

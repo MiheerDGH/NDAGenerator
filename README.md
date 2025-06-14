@@ -37,6 +37,6 @@ Future improvements may include:
 - History tracking for previous NDAs
 - Support for custom clause selection or template types
 
-This project was built as part of a Legal Chain summer intern assignment. Contributions are welcome, and the project is open-source under the MIT License.
+This project was built as part of a Legal Chain. Contributions are welcome, and the project is open-source under the MIT License.
 
 
