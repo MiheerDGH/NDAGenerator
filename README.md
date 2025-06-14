@@ -1,51 +1,42 @@
 # Paralegal NDA Generator
 
-This project is a full-stack AI-powered Non-Disclosure Agreement (NDA) generator. It allows users to input relevant information through a web form, and automatically generates a legally structured NDA using an AI model such as Claude or OpenAI.
+Paralegal NDA Generator is a full-stack AI-powered web application that allows users to generate legally formatted Non-Disclosure Agreements (NDAs) based on simple form inputs. Designed for speed and simplicity, it provides two download options (.txt and .pdf), automatically formats long content for PDF output, and includes error handling via modal popups. Ideal for legal assistants, startups, students, and anyone who needs a fast NDA draft.
 
-## Features
+Built with React and Flask, the frontend collects party names, effective date, description of confidential information, and term length. Once submitted, the form data is sent to the backend where an AI model generates a complete NDA contract. The result is displayed on the page and can be downloaded by the user.
 
-- AI-generated NDA content using provided party and agreement details
-- Dynamic form-based UI for quick and simple data entry
-- Export or copy the NDA result
-- Secure handling of API keys using environment variables
+Tech Stack includes:
+- Frontend: React, HTML/CSS, jsPDF
+- Backend: Python, Flask, OpenAI (or Claude API), CORS
+- Features: PDF + TXT download, error modal, loading spinner, clean UI
 
-## Tech Stack
+How to run the project:
+1. Clone the repository from GitHub.
+2. Make sure you have Node.js and Python installed.
+3. Navigate to the `nda-backend/` directory, install dependencies with `pip install flask flask-cors openai`, and run the backend with `python app.py`.
+4. Navigate to the `nda-generator/` directory, run `npm install` to install frontend dependencies, and launch the frontend with `npm start`.
+5. The React app will be available at `http://localhost:3000`, and it will communicate with the Flask backend at `http://localhost:5000`.
 
-- Frontend: React (Create React App), CSS
-- Backend: Flask (Python), Requests, dotenv
-- AI Integration: Claude API
-- Version Control: Git and GitHub
+Project structure:
+- `nda-generator/`: React frontend with `App.js` for form logic and UI, `App.css` for styling, and standard React files.
+- `nda-backend/`: Flask backend with a single `app.py` that handles POST requests to generate NDAs using an AI model.
+- `.gitignore`: Standard ignored files including node_modules and environment files.
+- `README.md`: Project overview and instructions.
+- Both download buttons and UI feedback elements (spinner and modal) are already implemented.
 
-## Project Structure
+This app includes:
+- AI-generated legal NDA text
+- Automatic PDF line wrapping and page breaking using jsPDF
+- Modal error popups for backend failures
+- Loading indicator while the AI generates the contract
+- Text and PDF download functionality
+- Clean and professional interface
 
-LegalChainNdaGenerator/
-├── .gitignore
-├── README.md
-├── NDAGenerator.git/               # Local Git mirror (can be removed from project root)
-│
-├── nda-backend/                    # Flask backend
-│   ├── app.py                      # Main Flask application with API route to generate NDA
-│   └── .env                        # Contains API keys (should be gitignored)
-│
-├── nda-generator/                  # React frontend
-│   ├── public/                     # Static files
-│   │   ├── favicon.ico
-│   │   ├── index.html              # Main HTML file
-│   │   ├── logo192.png             # React logo (optional)
-│   │   ├── logo512.png             # React logo (optional)
-│   │   ├── manifest.json
-│   │   └── robots.txt
-│   │
-│   ├── src/                        # React source code
-│   │   ├── App.js                  # Main React component
-│   │   ├── App.css                 # Styling for App component
-│   │   ├── App.test.js             # React testing file
-│   │   ├── NDAimage.jpg            # (Optional) Local image asset
-│   │   ├── index.js                # Entry point for React
-│   │   ├── index.css               # Global styles
-│   │   ├── logo.svg                # Default React logo (optional)
-│   │   ├── reportWebVitals.js      # Performance reporting
-│   │   └── setupTests.js           # Test configuration
-│   │
-│   ├── package.json                # Frontend dependencies and scripts
-│   └── package-lock.json           # Exact dependency versions
+Future improvements may include:
+- Deployment to Render (backend) and Vercel (frontend)
+- User authentication
+- History tracking for previous NDAs
+- Support for custom clause selection or template types
+
+This project was built as part of a Legal Chain summer intern assignment. Contributions are welcome, and the project is open-source under the MIT License.
+
+
